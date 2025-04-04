@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
-import { TextField, Card, CardContent,Button } from '@mui/material';
+import { TextField, Card, CardContent,Button, List, ListItem, IconButton } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 
 //se instalo las dependencias de MUI
 //npm install @mui/material @emotion/react @emotion/styled
 //npm install @mui/icons-material
 
-const TodoList = () => {
-  
-  const [task, setTask] = useState('');
+const TodoGustavo = () => {
+    const [tasks, setTasks] = useState([]); //guarda las tareas y actualiza y array vacio
+    const [task, setTask] = useState(''); //almacena lo que se escribe y actualiza y string vacio
 
-  const addTask = () => {
-    if (task.trim() !== '') { //ELIMINA ESPACIO EN BLANCO
-      setTasks([...tasks, task]);//Se agrega nueva tarea
-      setTask(''); 
-    }
-  };
+    // aqui se agrega tareas
+    const addTask = () => {
+        if (task.trim() !== '') { //ELIMINA ESPACIO EN BLANCO
+        setTasks([...tasks, task]);//Se agrega nueva tarea
+        setTask(''); 
+        }
+    };
 
 // CardContent: Agrupa el contenido
 //onChange={(e) => setTask(e.target.value)}: Cuendo escribes se actualiza el estado.
 //onClick={addTask}: Al hacer clic ejecuta la función addTask.
-
+//<span>(t)</span>: muestra el texto cuando se agrega
   return (
     <Card>
       <CardContent>
@@ -35,10 +36,17 @@ const TodoList = () => {
           />
           <Button variant="contained" onClick={addTask}> AGREGAR </Button>
         </div>
-      </CardContent>
+        <List>
+            {tasks.map((t, index) => ( //recoge y genera una lista por tarea
+                <ListItem key ={index}>
+                <span>(t)</span>
 
+                </ListItem>
+            ))}
+        </List>
+      </CardContent>
     </Card>
   );
 };
 
-export default TodoList;
+export default TodoGustavo;
