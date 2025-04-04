@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Card, CardContent,Button, List, ListItem, IconButton } from '@mui/material';
+import { TextField, Button, List, ListItem, Card, CardContent,} from '@mui/material';
 import { Delete } from '@mui/icons-material';
 
 //se instalo las dependencias de MUI
@@ -17,6 +17,7 @@ const TodoGustavo = () => {
         setTask(''); 
         }
     };
+   
 
 // CardContent: Agrupa el contenido
 //onChange={(e) => setTask(e.target.value)}: Cuendo escribes se actualiza el estado.
@@ -37,12 +38,12 @@ const TodoGustavo = () => {
           <Button variant="contained" onClick={addTask}> AGREGAR </Button>
         </div>
         <List>
-            {tasks.map((t, index) => ( //recoge y genera una lista por tarea
-                <ListItem key ={index}>
-                <span>(t)</span>
-
-                </ListItem>
-            ))}
+          {tasks.map((t, index) => ( //recoge y genera una lista por tarea
+            <ListItem key={index} >
+              <span>{t}</span>
+            </ListItem>
+          ))}
+          
         </List>
       </CardContent>
     </Card>
