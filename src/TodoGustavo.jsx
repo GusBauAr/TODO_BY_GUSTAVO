@@ -22,6 +22,7 @@ const TodoGustavo = () => {
 //onChange={(e) => setTask(e.target.value)}: Cuendo escribes se actualiza el estado.
 //onClick={addTask}: Al hacer clic ejecuta la función addTask.
 //<span>(t)</span>: muestra el texto cuando se agrega
+  
   return (
     <Card>
       <CardContent>
