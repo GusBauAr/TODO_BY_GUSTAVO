@@ -17,6 +17,11 @@ const TodoGustavo = () => {
         setTask(''); 
         }
     };
+
+    // Eliminar tarea
+    const removeTask = (index) => { //que indica la posición de la tarea para eliminar en el array tasks.
+    setTasks(tasks.filter((_, i) => i !== index)); //actualiza el tasks despues de eliminar,crea de nuevo un array excepto con la que queremos eliminar y mantieneel las tareas que no queremos eliminar
+    };
     
    
 
@@ -41,7 +46,7 @@ const TodoGustavo = () => {
         </div>
         <List>
           {tasks.map((t, index) => ( //recoge y genera una lista por tarea
-            <ListItem key={index} >
+            <ListItem key={index} style={{ justifyContent: 'space-between' }} >
               <span>{t}</span>
               <IconButton edge="end" onClick={() => removeTask(index)}>
                 <Delete />
