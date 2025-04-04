@@ -17,6 +17,8 @@ const TodoGustavo = () => {
         setTask(''); 
         }
     };
+    
+   
 
 // CardContent: Agrupa el contenido
 //onChange={(e) => setTask(e.target.value)}: Cuendo escribes se actualiza el estado.
@@ -38,13 +40,16 @@ const TodoGustavo = () => {
           <Button variant="contained" onClick={addTask}> AGREGAR </Button>
         </div>
         <List>
+          {tasks.map((t, index) => ( //recoge y genera una lista por tarea
+            <ListItem key={index} >
+              <span>{t}</span>
+              <IconButton edge="end" onClick={() => removeTask(index)}>
+                <Delete />
+              </IconButton>
+            </ListItem>
+          ))}
+          
 
-            {tasks.map((t, index) => ( //recoge y genera una lista por tarea
-                <ListItem key ={index}>
-                <span>(t)</span>
-
-                </ListItem>
-            ))}
         </List>
       </CardContent>
     </Card>
